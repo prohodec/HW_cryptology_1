@@ -13,7 +13,7 @@ class AffineCipher:
         for char in message:
             if char.upper() in self.alphabet:
                 char_index = self.alphabet.index(char.upper())
-                encrypted_index = (self.a * char_index + self.b) % len(self.alphabet)
+                encrypted_index = (self.a * char_index + self.b) % self.alph_len
                 encrypted_message += self.alphabet[encrypted_index]
             else:
                 encrypted_message += char
@@ -25,7 +25,7 @@ class AffineCipher:
         for char in message:
             if char.upper() in self.alphabet:
                 char_index = self.alphabet.index(char.upper())
-                decrypted_index = a_inverse * (char_index - self.b) % len(self.alphabet)
+                decrypted_index = a_inverse * (char_index - self.b) % self.alph_len
                 decrypted_message += self.alphabet[decrypted_index]
             else:
                 decrypted_message += char
